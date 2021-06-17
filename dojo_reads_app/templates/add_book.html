@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add Book and Review</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/add_book.css' %}">
+    <!-- <link rel="stylesheet" href="../static/css/style.css" -->
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="/books" id="home">Home</a>
+            <a href="/logout" id="logout">log out</a>
+        </div>      <!--end header-->
+        <div id="errors"> 
+            {% if messages %}
+            <ul>    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>      <!--end errors-->
+        <div id="content">
+            <h2>Add a New Book Title and a Review</h2>
+            <form action="/books/create_book" method="POST">
+                {% csrf_token %}
+                <p id="p">Book Title: <input id="title_input" type="text" name="title"></p>
+                <p>Author:</p>
+                <p class="author_input">Choose from the list: 
+                    <select id="author_select" name="author_id">
+                        <option value="-1">Please select or add an author</option>
+                        {% for author in all_authors %}
+                            <option value="{{author.id}}">{{author.name}}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <p class="author_input">Or add a new author: <input id="author_input" type="text" name="author_name"></p>
+                <div id="review">
+                    <p>Review</p>
+                    <textarea name="content"></textarea>
+                </div>      <!--end review-->
+                <p>Rating:
+                    <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                    </select>
+                    stars.
+                </p>
+                <button type="submit">Add Book and Review</button>
+            </form>
+        </div>      <!--end content-->
+    </div>      <!--end wrapper-->
+</body>
+
+</html>

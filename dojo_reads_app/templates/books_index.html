@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Books Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/books_index.css' %}">
+    <!-- <link rel="stylesheet" href="../static/css/books_index.css" -->
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>Welcome, {{ logged_user.name }}</h1>
+            <a href="/books/add" id="add_book">Add Book and Review</a>
+            <a href="/logout" id="logout">log out</a>
+        </div>      <!--end header-->
+        <div id="content">
+            <div id="recent_reviews">
+                <h2>Recent Book Reviews:</h2>
+                {% for review in recent_reviews %}
+                    <h4><a href="/books/{{ review.book_reviewed.id }}">{{ review.book_reviewed.title }}</a></h4>
+                    <div id="rating">
+                        <p>Rating: </p>
+                        {% if review.rating == 5 %}
+                            <div class="stars">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                            </div>
+                        {% elif review.rating == 4 %}
+                            <div class="stars">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                            </div>
+                        {% elif review.rating == 3 %}
+                            <div class="stars">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                            </div>
+                        {% elif review.rating == 2 %}
+                            <div class="stars">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">  
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star"> 
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                            </div>
+                        {% elif review.rating == 1 %}
+                            <div class="stars">
+                                <img src="{% static 'img/gold_star.png' %}" alt="gold star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                                <img src="{% static 'img/blank_star.jpg' %}" alt="blank star">
+                            </div>
+                        {% endif %}
+                    </div>      <!--end rating-->
+                    <p><a href="/books/{{review.reviewed_by.id}}">{{review.reviewed_by.name}}</a> says: {{review.content}}</p>
+                    <p id="posted">Posted on {{review.created_at}}</p>        
+                {% endfor %}                    
+            </div>  <!--end recent_reviews-->
+            <div id="other_books">
+                <h2>Other Books with Reviews</h2>
+                <ul>
+                    {% for book in all_books %}
+                        {% if book.book_reviews.all.count > 0 %}
+                            <li><a href="/books/{{ book.id }}">{{ book.title }}</a></li>
+                        {% endif %}
+                    {%endfor%}
+                </ul>
+            </div>      <!--end other_books-->
+        </div>      <!--end content-->
+    </div>      <!--end wrapper-->
+</body>
+
+</html>

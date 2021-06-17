@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+#wrapper {
+    width: 900px;
+    margin: 100px auto;
+    border: 3px solid rgb(23, 73, 211);
+    padding: 10px;
+    background-color: #F7F7F7;
+}
+
+#header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#header a {
+    padding-top: 5px;
+}
+
+#add_book {
+    margin-left: 471px;
+}
+
+#logout {
+    margin-left: 5px;
+}
+
+#content {
+    display: flex;
+}
+
+#recent_reviews, 
+#other_books {
+    flex: 1
+}
+
+#recent_reviews h2 {
+    margin-bottom: 9px;
+}
+
+#recent_reviews h4 {
+    margin-bottom: 7px;
+}
+
+#rating {
+    display: flex;
+}
+
+#rating img {
+    height: 18px;
+}
+
+#posted {
+    margin-bottom: 9px;
+}
+
+#other_books,
+#other_books li {
+    text-align: center;
+}
+

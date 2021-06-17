@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+#wrapper {
+    width: 900px;
+    margin: 100px auto;
+    border: 3px solid rgb(23, 73, 211);
+    padding: 10px;
+    background-color: #F7F7F7;
+}
+
+#home {
+    margin-left: 800px;
+}
+
+#logout {
+    margin-left: 5px;
+}
+
+#errors {
+    color: red;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+#title_input {
+    width: 63%;
+}
+
+#p, .author_input {
+    margin-bottom: 5px;
+}
+
+.author_input {
+    margin-left: 33px;
+}
+
+#author_select,
+#author_input {
+    width: 55%;
+}
+
+#review {
+    display: flex;
+}
+
+#review textarea {
+    margin: 0px 0px 5px 9px;
+    width: 66%;
+}
+
+button {
+    padding: 3px;
+    border-radius: 5px;
+    margin: 5px 0px 0px 99px;
+    background-color: rgb(80, 131, 131);
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

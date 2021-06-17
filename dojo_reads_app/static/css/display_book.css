@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+#wrapper {
+    width: 900px;
+    margin: 100px auto;
+    border: 3px solid rgb(23, 73, 211);
+    padding: 10px;
+    background-color: #F7F7F7;
+}
+
+#home {
+    margin-left: 800px;
+}
+
+#logout {
+    margin-left: 5px;
+}
+
+#errors {
+    color: red;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+#author li {
+    margin-left: 36px;
+}
+
+#content {
+    display: flex;
+}
+
+#reviews {
+    flex: 2;
+}
+
+h2 {
+    margin: 15px;
+}
+
+#rating {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+img {
+    height: 18px;
+}
+
+button {
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#add_review {
+    flex: 1;
+}
+
+textarea {
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+
+
